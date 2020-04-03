@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("Portfolio Home")
+    return render(request, 'portfolio/index.html')
 
 def contact(request):
-    return HttpResponse("Contact Me")
+    return render(request, 'portfolio/contact.html')
 
 def greet_by_name(request, name):
-    return HttpResponse("Hello %s" % name)
+    context = {'name' : name}
+    return render(request, 'portfolio/greet.html', context)
